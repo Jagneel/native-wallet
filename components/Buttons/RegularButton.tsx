@@ -1,6 +1,9 @@
 import React, { FunctionComponent } from 'react'
+import { GestureResponderEvent, StyleProp, TextStyle, ViewStyle } from 'react-native';
+import styled from 'styled-components/native';
 
 import { colors } from '../colors';
+import RegularText from '../Text/RegularText';
 
 
 const ButtonView = styled.TouchableOpacity`
@@ -11,11 +14,19 @@ const ButtonView = styled.TouchableOpacity`
     border-radius: 20px;
 `
 
-const RegularButton: FunctionComponent = () => {
-    return (
-        <div>
+// types
+interface ButtonProps {
+    btnStyles?: StyleProp<ViewStyle>;
+    onPress: ((event: GestureResponderEvent) => void | undefined);
+    textStyles?: StyleProp<TextStyle>;
+    children: React.ReactNode;
+}
 
-        </div>
+const RegularButton: FunctionComponent<ButtonProps> = (props) => {
+    return (
+        <ButtonView onPress={props.onPress} style={props.btnStyles}>
+            <RegularText textStyles={props.textStyles}>{props.children}</RegularText>
+        </ButtonView>
     )
 }
 

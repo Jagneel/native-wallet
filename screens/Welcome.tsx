@@ -14,7 +14,7 @@ height: 100%å
 const TopSection = styled.View`
 width: 100%;
 flex: 1;
-max-height: 55%
+min-height: 35%
 `
 
 const TopImage = styled.Image`
@@ -27,12 +27,14 @@ const BottomSection = styled.View`
 width: 100%;
 padding: 25px;
 flex: 1;
+justify-content: flex-end;
 `
 
 // Image
 import background from './../assets/background-img.jpg';
 import BigText from "../components/Text/BigText";
 import SmallText from "../components/Text/SmallText";
+import RegularButton from "../components/Buttons/RegularButton";
 
 
 
@@ -51,6 +53,9 @@ const Welcome: FunctionComponent = () => {
                     <SmallText textStyles={{ width: '70%', marginBottom: 25 }}>
                         Best payment method, connects your money to your friends
                     </SmallText>
+                    <RegularButton onPress={() => { }}>
+                        Get Started
+                    </RegularButton>
                 </BottomSection>
             </WelcomeContainer>
         </>
